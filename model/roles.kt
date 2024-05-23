@@ -1,2 +1,2 @@
 package model
-data class Role(val id: Int, val roleName: String)
+data class roles(val id: Int, val roleName: String)
