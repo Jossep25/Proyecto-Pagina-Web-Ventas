@@ -6,7 +6,7 @@ import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
-class DatabaseUserRepository : userRepository{
+class DatabaseUserRepository: userRepository{
     private val connection : Connection
     init {
         val jdbcUrl = "jdbc:mysql://localhost:3306/bd_ventas"
@@ -15,7 +15,7 @@ class DatabaseUserRepository : userRepository{
         connection = DriverManager.getConnection(jdbcUrl, jdbcUser, jdbcPassword)
     }
     override fun findByUsername(username: String): users? {
-        val query = "SELECT id, username, password, role_id FROM users WHERE username = ?"
+        val query = "SELECT id, username, password, email, role_id, first_name, last_name, dni FROM users WHERE username = ?"
         val statement: PreparedStatement = connection.prepareStatement(query)
         statement.setString(1, username)
         val resultSet: ResultSet = statement.executeQuery()
