@@ -2,6 +2,7 @@ package model
 data class users(val id: Int, 
                 val username: String, 
                 val password: String, 
+                val email: String,
                 val roleId: Int, 
                 val firstName: String, 
                 val lastName: String, 
